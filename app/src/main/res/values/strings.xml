@@ -11,6 +11,8 @@
 
     <string name="button_addPlayer">Add Player</string>
     <string name="menu_addplayer">Add</string>
+    <string name="button_cancelGame">Cancel</string>
+
 
 
 </resources>
