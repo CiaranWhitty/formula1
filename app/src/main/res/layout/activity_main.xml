@@ -9,7 +9,8 @@
 
     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="0dp">
 
         <android.support.design.widget.AppBarLayout
                 android:id="@+id/appBarLayout"
@@ -24,7 +25,10 @@
                     android:id="@+id/toolbarAdd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:titleTextColor="@color/colorPrimary"/>
+                    app:titleTextColor="@color/colorPrimary">
+
+            </android.support.v7.widget.Toolbar>
+
         </android.support.design.widget.AppBarLayout>
 
         <ScrollView
@@ -63,6 +67,34 @@
                         android:padding="8dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="14sp"/>
+
+
+                <android.support.design.widget.AppBarLayout
+                        android:id="@+id/appBarLayoutPLayer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorAccent"
+                        android:fitsSystemWindows="true"
+                        app:elevation="0dip"
+                        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+                    <android.support.v7.widget.Toolbar
+                            android:id="@+id/toolbarListPlayer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:titleTextColor="@color/colorPrimary">
+
+                        <TextView android:id="@+id/playerList"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_margin="16dp"
+                                  android:paddingBottom="8dp"
+                                  android:paddingTop="8dp"
+                                  android:text="@string/text_listPlayer"/>
+
+                    </android.support.v7.widget.Toolbar>
+
+                </android.support.design.widget.AppBarLayout>
 
                 <Button
                         android:id="@+id/btnAdd"

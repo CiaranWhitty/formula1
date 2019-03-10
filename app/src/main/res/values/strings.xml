@@ -10,8 +10,7 @@
     <string name="hint_playerpoints">points</string>
 
     <string name="button_addPlayer">Add Player</string>
-
-
+    <string name="menu_addplayer">Add</string>
 
 
 </resources>
