@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
     var game = GameModel()
     lateinit var app: MainApp
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -43,6 +42,12 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
             }
         }
 
+        btnAddPlayer.setOnClickListener {
+
+            toast("btnAddPlayer pressed")
+            setContentView(R.layout.activity_player)
+
+        }
 
 
     }
@@ -62,7 +67,6 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
         }
         return super.onOptionsItemSelected(item)
     }
-
 
 
 
