@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">formula-1</string>
     <string name="button_addF1Game">Add Game</string>
 
@@ -10,9 +11,9 @@
     <string name="hint_playerpoints">points</string>
 
     <string name="button_addPlayer">Add Player</string>
-    <string name="menu_addplayer">Add</string>
-    <string name="button_cancelGame">Cancel</string>
-
+    <string name="menu_addplayer">Add Player</string>
+    <string name="menu_cancelGame">Cancel</string>
+    <string name="menu_player">Cancel</string>
 
 
 </resources>

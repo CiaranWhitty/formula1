@@ -4,11 +4,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_game_list.*
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
-import org.jetbrains.anko.toast
+import org.jetbrains.anko.*
 import org.wit.formula_1.R
 import org.wit.formula_1.main.MainApp
 import org.wit.formula_1.models.GameModel
@@ -26,6 +23,8 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
         toolbarAdd.title = title
         setSupportActionBar(toolbarAdd)
 
+        btnAdd.requestFocus();
+
         info("MainActivity has started")
 
         btnAdd.setOnClickListener() {
@@ -42,19 +41,13 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
             }
         }
 
-        btnAddPlayer.setOnClickListener {
-
-            toast("btnAddPlayer pressed")
-            setContentView(R.layout.activity_player)
-
-        }
 
 
     }
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_cancel, menu)
+        menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -63,7 +56,9 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
             R.id.item_cancel -> {
                 finish()
             }
-
+            R.id.item_add_player -> {
+                startActivityForResult<PlayerActivity>(0)
+            }
         }
         return super.onOptionsItemSelected(item)
     }
