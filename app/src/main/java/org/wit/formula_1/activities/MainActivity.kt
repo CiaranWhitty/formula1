@@ -2,13 +2,16 @@ package org.wit.formula_1.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.view.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.card_player.view.*
 import org.jetbrains.anko.*
 import org.wit.formula_1.R
 import org.wit.formula_1.main.MainApp
 import org.wit.formula_1.models.GameModel
+import org.wit.formula_1.models.PlayerModel
 
 class MainActivity : AppCompatActivity(), AnkoLogger {
 
@@ -23,7 +26,11 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
         toolbarAdd.title = title
         setSupportActionBar(toolbarAdd)
 
-        btnAdd.requestFocus();
+        val layoutManager = LinearLayoutManager(this)
+        recyclerViewPlayer.layoutManager = layoutManager
+        recyclerViewPlayer.adapter = PlayerAdapter(app.players)
+
+        btnAdd.requestFocus()
 
         info("MainActivity has started")
 
@@ -36,12 +43,12 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
                 app.games.add(game.copy())
                 info("add Button Pressed: $game")
                 app.games.forEach { info("add Button Pressed: ${it}") }
+                setResult(AppCompatActivity.RESULT_OK)
+                finish()
             } else {
                 toast("Please Enter a title")
             }
         }
-
-
 
     }
 
@@ -65,5 +72,5 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
 
 
 
-
 }
+

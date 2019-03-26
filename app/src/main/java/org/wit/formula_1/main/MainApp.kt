@@ -4,17 +4,16 @@ import android.app.Application
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.wit.formula_1.models.GameModel
+import org.wit.formula_1.models.PlayerModel
 
 class MainApp : Application(), AnkoLogger {
 
     val games = ArrayList<GameModel>()
+    val players = ArrayList<PlayerModel>()
 
     override fun onCreate() {
         super.onCreate()
 
-        games.add(GameModel("One", "About one..."))
-        games.add(GameModel("Two", "About two..."))
-        games.add(GameModel("Three", "About three..."))
 
         info("" + "Game started")
     }

@@ -12,17 +12,17 @@
             android:padding="16dp">
 
         <TextView
-                android:id="@+id/gameTitle"
+                android:id="@+id/playerName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:textSize="30sp"/>
 
         <TextView
-                android:id="@+id/gameDescription"
+                android:id="@+id/playerPoints"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/gameTitle"
+                android:layout_below="@+id/playerName"
                 android:layout_marginTop="0dp"/>
 
     </RelativeLayout>
