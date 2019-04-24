@@ -16,8 +16,10 @@ class PlayerActivity : AppCompatActivity(), AnkoLogger {
 
     var player = PlayerModel()
     lateinit var app: MainApp
+    var editP = false
 
 override fun onCreate(savedInstanceState: Bundle?) {
+
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_player)
     app = application as MainApp
@@ -27,25 +29,39 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
     btnAddPlayer.requestFocus()
 
-    btnAddPlayer.setOnClickListener {
-
-        player.name = playerName.text.toString()
-        player.points = playerPoints.text.toString()
-
-        if (player.name.isNotEmpty()) {
-            app.players.add(player.copy())
-            info("add Button Pressed: $player")
-            app.players.forEach { info("add Button Pressed: ${it}") }
-            setResult(AppCompatActivity.RESULT_OK)
-            finish()
-        } else {
-            toast("Please Enter a title")
-        }
-
+    if (intent.hasExtra("player_edit")) {
+        editP = true
+        player = intent.extras.getParcelable<PlayerModel>("player_edit")
+        playerName.setText(player.name)
+        playerPoints.setText(player.points)
+        btnAddPlayer.setText(R.string.save_player)
     }
 
+    btnAddPlayer.setOnClickListener() {
+        player.name = playerName.text.toString()
+        player.points= playerPoints.text.toString()
+
+        if (player.name.isEmpty()) {
+            toast(R.string.enter_player_title)
+        } else {
+            if (editP) {
+                app.players.update(player.copy())
+            } else {
+                app.players.create(player.copy())
+            }
+        }
+        info("add Button Pressed: $playerName")
+        setResult(AppCompatActivity.RESULT_OK)
+        finish()
+    }
 
 }
+
+
+
+
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_player, menu)

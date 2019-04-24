@@ -15,5 +15,12 @@
     <string name="menu_cancelGame">Cancel</string>
     <string name="menu_player">Cancel</string>
 
+    <string name="enter_game_title"> Please enter a game Title </string>
+    <string name="enter_player_title"> Please enter a player Name </string>
+
+    <string name="save_game"> Save game </string>
+    <string name="save_player"> Save player </string>
+
+    <string name="Add_button_default">add Button Pressed:</string>
 
 </resources>
