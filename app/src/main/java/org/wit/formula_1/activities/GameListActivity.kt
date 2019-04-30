@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import kotlinx.android.synthetic.main.activity_game_list.*
 import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.startActivityForResult
 import org.wit.formula_1.R
 import org.wit.formula_1.main.MainApp
@@ -14,44 +15,29 @@ import org.wit.formula_1.models.GameModel
 
 class GameListActivity : AppCompatActivity(), GameListener {
 
-lateinit var app: MainApp
+    lateinit var app: MainApp
 
-override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_game_list)
-    app = application as MainApp
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_game_list)
+        app = application as MainApp
+        toolbarMain.title = title
+        setSupportActionBar(toolbarMain)
 
-    toolbarMain.title = title
-    setSupportActionBar(toolbarMain)
-
-    val layoutManager = LinearLayoutManager(this)
-    recyclerView.layoutManager = layoutManager
-    recyclerView.adapter = GameAdapter(app.games.findAll(),this)
-
-}
-
-    override fun onGameClick(game: GameModel) {
-        startActivityForResult(intentFor<MainActivity>().putExtra("game edit", game), 0)
-    }
-
-
-
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        val layoutManager = LinearLayoutManager(this)
+        recyclerViewGame.layoutManager = layoutManager
+        recyclerViewGame.adapter = GameAdapter(app.games.findAll(), this)
         loadGames()
-        super.onActivityResult(requestCode, resultCode, data)
     }
 
-    private fun loadGames(){
-        showGames(app.games.findAll())
+    private fun loadGames() {
+        showGames( app.games.findAll())
     }
 
-    fun showGames (games: List<GameModel> ){
-        recyclerView.adapter = GameAdapter(games,this)
-        recyclerView.adapter?.notifyDataSetChanged()
-
+    fun showGames (games: List<GameModel>) {
+        recyclerViewGame.adapter = GameAdapter(games, this)
+        recyclerViewGame.adapter?.notifyDataSetChanged()
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_start, menu)
@@ -61,9 +47,17 @@ override fun onCreate(savedInstanceState: Bundle?) {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.item_add -> startActivityForResult<MainActivity>(0)
+
         }
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onGameClick(game: GameModel) {
+        startActivityForResult(intentFor<MainActivity>().putExtra("game_edit", game), 0)
+    }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        loadGames()
+        super.onActivityResult(requestCode, resultCode, data)
+    }
 }
