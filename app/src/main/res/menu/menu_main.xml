@@ -2,10 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+    <item
+            android:visible="false"
+            android:id="@+id/item_delete_game"
+            android:title="@string/menu_deleteGame"
+            app:showAsAction="always"/>
+
     <item
             android:id="@+id/item_add_player"
             android:title="@string/menu_addplayer"
             app:showAsAction="always"/>
+
 
     <item
             android:id="@+id/item_cancel"

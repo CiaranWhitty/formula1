@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity(), AnkoLogger, PlayerListener {
     var game = GameModel()
     var player = PlayerModel()
     lateinit var app: MainApp
-    var edit = false;
+    var edit = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,7 +80,12 @@ class MainActivity : AppCompatActivity(), AnkoLogger, PlayerListener {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
 
-                R.id.item_add_player -> startActivityForResult<PlayerActivity>(0)
+            R.id.item_delete_game -> {
+                app.games.delete(game)
+                finish()
+            }
+
+            R.id.item_add_player -> startActivityForResult<PlayerActivity>(0)
 
             R.id.item_cancel -> {
                 finish()

@@ -23,4 +23,8 @@
 
     <string name="Add_button_default">add Button Pressed:</string>
 
+    <string name="menu_deleteGame">Delete</string>
+
+    <string name="menu_deletePlayer">Delete</string>
+
 </resources>

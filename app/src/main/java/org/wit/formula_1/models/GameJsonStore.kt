@@ -12,7 +12,7 @@ val JSON_FILE = "games.json"
 val gsonBuilder = GsonBuilder().setPrettyPrinting().create()
 val listType = object : TypeToken<java.util.ArrayList<GameModel>>() {}.type
 
-fun generateRandomId(): Long {
+fun generateRandomIdG(): Long {
     return Random().nextLong()
 }
 
@@ -33,7 +33,7 @@ class GameJSONStore : GameStore, AnkoLogger {
     }
 
     override fun create(game: GameModel) {
-        game.gid = generateRandomId()
+        game.gid = generateRandomIdG()
         games.add(game)
         serialize()
     }
@@ -48,6 +48,13 @@ class GameJSONStore : GameStore, AnkoLogger {
         }
         serialize()
     }
+
+
+    override fun delete(game: GameModel) {
+        games.remove(game)
+        serialize()
+    }
+
 
     private fun serialize() {
         val jsonString = gsonBuilder.toJson(games, listType)

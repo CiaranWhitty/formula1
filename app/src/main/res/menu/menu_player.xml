@@ -3,7 +3,15 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+            android:visible="false"
+            android:id="@+id/item_delete_player"
+            android:title="@string/menu_deletePlayer"
+            app:showAsAction="always"/>
+
+    <item
             android:id="@+id/item_cancel_player"
             android:title="@string/menu_player"
             app:showAsAction="always"/>
+
+
 </menu>

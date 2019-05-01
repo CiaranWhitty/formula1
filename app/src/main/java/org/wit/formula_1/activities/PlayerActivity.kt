@@ -65,11 +65,18 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_player, menu)
+        if (editP && menu != null) menu.getItem(0).setVisible(true)
         return super.onCreateOptionsMenu(menu)
     }
 
     override  fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
+
+            R.id.item_delete_player -> {
+                app.players.delete(player)
+                finish()
+            }
+
             R.id.item_cancel_player -> {
                 finish()
             }
