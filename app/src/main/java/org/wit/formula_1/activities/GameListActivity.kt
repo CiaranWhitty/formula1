@@ -21,7 +21,7 @@ class GameListActivity : AppCompatActivity(), GameListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_list)
         app = application as MainApp
-        toolbarMain.title = title
+        toolbarMain.title = "Games List-"
         setSupportActionBar(toolbarMain)
 
         val layoutManager = LinearLayoutManager(this)

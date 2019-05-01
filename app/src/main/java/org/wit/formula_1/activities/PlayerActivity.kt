@@ -24,7 +24,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
     setContentView(R.layout.activity_player)
     app = application as MainApp
 
-    toolbarAddPlayer.title = title
+    toolbarAddPlayer.title = "Player-"
     setSupportActionBar(toolbarAddPlayer)
 
     btnAddPlayer.requestFocus()
@@ -48,6 +48,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
                 app.players.update(player.copy())
             } else {
                 app.players.create(player.copy())
+
             }
         }
         info("add Button Pressed: $playerName")

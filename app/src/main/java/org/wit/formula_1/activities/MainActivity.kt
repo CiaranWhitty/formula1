@@ -18,14 +18,13 @@ import org.wit.formula_1.models.PlayerModel
 class MainActivity : AppCompatActivity(), AnkoLogger, PlayerListener {
 
     var game = GameModel()
-    var player = PlayerModel()
     lateinit var app: MainApp
     var edit = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        toolbarAdd.title = title
+        toolbarAdd.title = "Game-"
         setSupportActionBar(toolbarAdd)
 
         info("Main Activity started..")
