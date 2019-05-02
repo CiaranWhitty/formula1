@@ -6,6 +6,7 @@
     <item
             android:visible="false"
             android:id="@+id/item_delete_game"
+            android:icon="@android:drawable/ic_menu_delete"
             android:title="@string/menu_deleteGame"
             app:showAsAction="always"/>
 
@@ -18,6 +19,7 @@
 
     <item
             android:id="@+id/item_cancel"
+            android:icon="@android:drawable/ic_menu_revert"
             android:title="@string/menu_cancelGame"
             app:showAsAction="always"/>
 
