@@ -17,6 +17,6 @@ class MainApp : Application(), AnkoLogger {
 
         players = PlayerJsonStore(applicationContext)
 
-        info("" + "Game started")
+        info("" + "App started")
     }
 }

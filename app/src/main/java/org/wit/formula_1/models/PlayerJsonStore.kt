@@ -47,6 +47,7 @@ class PlayerJsonStore : PlayerStore, AnkoLogger {
         if (foundPlayer != null) {
             foundPlayer.name = player.name
             foundPlayer.points = player.points
+            foundPlayer.image = player.image
         }
         serialize()
     }

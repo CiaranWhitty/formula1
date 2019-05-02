@@ -17,6 +17,11 @@ class PlayerMemStore : PlayerStore, AnkoLogger {
         return players
     }
 
+    /*override fun findPlayers(player: PlayerModel): List<PlayerModel> {
+
+        return players
+    }
+*/
     override fun create(player: PlayerModel) {
         player.pid = getpId()
         players.add(player)
@@ -28,6 +33,7 @@ class PlayerMemStore : PlayerStore, AnkoLogger {
         if (foundPlayer != null) {
             foundPlayer.name = player.name
             foundPlayer.points = player.points
+            foundPlayer.image = player.image
             logAll()
         }
     }

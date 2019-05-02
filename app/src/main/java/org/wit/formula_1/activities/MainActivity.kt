@@ -2,7 +2,6 @@ package org.wit.formula_1.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
@@ -17,9 +16,10 @@ import org.wit.formula_1.models.PlayerModel
 
 class MainActivity : AppCompatActivity(), AnkoLogger, PlayerListener {
 
-    var game = GameModel()
     lateinit var app: MainApp
+    var game = GameModel()
     var edit = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,6 +73,7 @@ class MainActivity : AppCompatActivity(), AnkoLogger, PlayerListener {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         if (edit && menu != null) menu.getItem(0).setVisible(true)
+        if (edit && menu != null) menu.getItem(1).setVisible(true)
         return super.onCreateOptionsMenu(menu)
     }
 

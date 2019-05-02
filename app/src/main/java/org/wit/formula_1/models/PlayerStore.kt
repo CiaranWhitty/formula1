@@ -6,5 +6,6 @@ interface PlayerStore {
     fun update(player: PlayerModel)
     fun delete(player: PlayerModel)
 
+    //fun findPlayers(player: PlayerModel): List<PlayerModel>
 
 }

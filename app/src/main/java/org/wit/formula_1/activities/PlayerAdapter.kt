@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.card_player.view.*
 import org.wit.formula_1.R
+import org.wit.formula_1.helpers.readImageFromPath
 import org.wit.formula_1.models.PlayerModel
 
 class PlayerAdapter constructor(private var players: List<PlayerModel>,
@@ -27,8 +28,8 @@ class PlayerAdapter constructor(private var players: List<PlayerModel>,
         fun bind(player: PlayerModel, listener: PlayerListener) {
             itemView.playerName.text = player.name
             itemView.playerPoints.text = player.points
+            itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, player.image))
             itemView.setOnClickListener { listener.onPlayerClick(player) }
-
         }
     }
 }

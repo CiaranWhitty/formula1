@@ -28,6 +28,7 @@ class GameMemStore : GameStore, AnkoLogger {
         if (foundGame != null) {
             foundGame.title = game.title
             foundGame.description = game.description
+
             logAll()
         }
     }
