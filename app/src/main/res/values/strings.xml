@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">formula 1 Game Recorder</string>
+    <string name="app_name">formula 1 League Games</string>
     <string name="button_addF1Game">Add Game</string>
 
     <string name="hint_gameTitle">Game Title</string>
